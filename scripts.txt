@@ -1,0 +1,33 @@
+CREATE DATABASE crud3;
+USE crud3;
+
+CREATE TABLE persona (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombres VARCHAR(100),
+    apellidos VARCHAR(100),
+    f_inscripcion VARCHAR(100),
+    t_menbresia varchar(100),
+    edad varchar(100),
+    celular varchar(12),
+    monto_pagar varchar(100),
+    DNI VARCHAR(8)
+);
+
+CREATE TABLE promociones (
+  id int NOT NULL AUTO_INCREMENT,
+  promocion varchar(200) DEFAULT NULL,
+  duracion varchar(200) DEFAULT NULL,
+  id_persona int NOT NULL,
+  PRIMARY KEY (id),
+  KEY fk_promociones_1_idx (id_persona),
+  CONSTRAINT fk_promociones_1 FOREIGN KEY (id_persona) REFERENCES persona (id)
+);
+
+ALTER TABLE promociones
+DROP FOREIGN KEY fk_promociones_1;
+
+ALTER TABLE promociones
+ADD CONSTRAINT fk_promociones_1
+FOREIGN KEY (id_persona)
+REFERENCES persona (id)
+ON DELETE CASCADE;

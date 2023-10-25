@@ -1,0 +1,15 @@
+body {
+    margin: 0;
+    padding: 0;
+    /* No necesitas la regla overflow: hidden; para permitir el desplazamiento */
+}
+
+#video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que el video cubra todo el contenedor sin distorsiones */
+    z-index: -1; /* Asegura que el video esté detrás de otros elementos */
+}
